@@ -1,28 +1,12 @@
 import CetiesCardItem from '../cities-card-item/cities-card-item';
-
-type citiesCardObj = {
-  id: number;
-  mark: string;
-  imgSrc: string;
-  priceValue: string;
-  priceText: string;
-  name: string;
-  type: string;
-}
-
-type citiesCardsArr = citiesCardObj[];
-
-type citiesCardListProps = {
-  cardData: citiesCardsArr;
-}
-
+import { citiesCardListProps } from '../../types/types';
 
 function CitiesCardList (props: citiesCardListProps): JSX.Element {
-  const { cardData } = props;
+  const { cards } = props;
   return (
     <div className="cities__places-list places__list tabs__content">
-      {cardData.map((item) => (
-        <CetiesCardItem key={item.id} card={item}/>
+      {cards.map((card) => (
+        <CetiesCardItem key={card.id} card={card}/>
       ))}
     </div>
   );
